@@ -1,35 +1,29 @@
-# Magento 2 Module for adding loading="lazy" to page builder images
- 
- - [Main Functionalities](#markdown-header-main-functionalities)
- - [Installation](#markdown-header-installation)
- - [Configuration](#markdown-header-configuration)
+# Page Builder Lazyload Images for Magento 2 (SISL fork)
 
+Adds the native browser `loading="lazy"` attribute to images inserted through Magento 2
+Page Builder — deferring off-screen images so they don't block the initial render. A small,
+zero-config win for **LCP** and overall Core Web Vitals. Can be toggled per image.
 
-## Main Functionalities
-Uses the modern browser loading="lazy" attribute on images added via page builder. Can be turned on and off per image as needed.
+Maintained fork of `develodesign/magento-module-pagebuilder-lazyload-images`, verified on
+**Magento 2.4.9 / PHP 8.4**.
 
+## What changed vs upstream
 
-* **Do not turn on for images loaded above the fold, this causes unnecessary layout shift (CLS).**
+- Added `require` to composer.json (`php` 8.1–8.5, `magento/framework >=103.0.4 <104`).
+  The original declared no requirements, so Composer would install it on any incompatible
+  version silently.
 
+## Install
 
-### Composer
-
- ```
- composer require develodesign/magento-module-pagebuilder-lazyload-images
-
- bin/magento module:enable Develodesign_PagebuilderLazyLoadImages
- bin/magento setup:upgrade
- bin/magento cache:flush
+```bash
+composer config repositories.lazyimg vcs https://github.com/SISL-source/magento2-pagebuilder-lazyload-images
+composer require develodesign/magento-module-pagebuilder-lazyload-images:dev-main
+bin/magento setup:upgrade
 ```
 
-### Zip file
+Then edit any Page Builder image and toggle lazy loading in the image settings.
 
- - Unzip the zip file in `app/code/Develodesign/PagebuilderLazyloadImages`
- - Enable the module by running `php bin/magento module:enable Develodesign_PagebuilderLazyloadImages`
- - Apply database updates by running `php bin/magento setup:upgrade`\*
- - Flush the cache by running `php bin/magento cache:flush`
+## License
 
-## Installation
-  * = in production please use the option `--keep-generated` 
-  
-![This is an image](https://raw.githubusercontent.com/develodesign/magento-module-pagebuilder-lazyload-images/main/screen.png)
+GPL-3.0 (upstream). Maintained by [SISL](https://sisl.pl) — one of a set of revived, free,
+open-source Magento modules kept working on the latest releases.
