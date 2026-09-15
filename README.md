@@ -16,8 +16,7 @@ Maintained fork of `develodesign/magento-module-pagebuilder-lazyload-images`, ve
 ## Install
 
 ```bash
-composer config repositories.lazyimg vcs https://github.com/SISL-source/magento2-pagebuilder-lazyload-images
-composer require develodesign/magento-module-pagebuilder-lazyload-images:dev-main
+composer require sisl-source/magento2-pagebuilder-lazyload-images
 bin/magento setup:upgrade
 ```
 
