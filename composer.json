@@ -1,8 +1,7 @@
 {
-    "name": "develodesign/magento-module-pagebuilder-lazyload-images",
+    "name": "sisl-source/magento2-pagebuilder-lazyload-images",
     "description": "Uses the modern browser loading=\"lazy\" attribute on images added via page builder. Can be turned on and off per image as needed.",
     "type": "magento2-module",
-    "version": "1.0",
     "license": "GPL-3.0",
     "authors": [
         {
